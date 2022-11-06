@@ -22,4 +22,6 @@ label start:
 
     mother "Сынок иди на работу"
 
+    mother "Тест"
+
     return
