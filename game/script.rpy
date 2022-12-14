@@ -1,32 +1,29 @@
-﻿# Вы можете расположить сценарий своей игры в этом файле.
+﻿init:
+    # Определение персонажей игры.
+    define Kirill = Character('Кирилл')
+    define Mother = Character('Мама')
 
-# Определение персонажей игры.
-# define Kirill = Character('Иван', callback=partial(blur_callback, "Kirill"))
-# define Kirill = Character('Иван', who_xpos=1150)
-define Kirill = Character('Кирилл')
-define Mother = Character('Мама')
+    image gg = "GG.png"
 
-image gg = "GG.png"
-image mother_image = "mother.png"
+    image mother_image = "mother.png"
+    image home_background = "home_background.png"
+    image street_background = "street_background.png"
+    image circle_background = "circle_background.png"
 
-image home_background = "home_background.png"
 
-image street_background = "street_background.png"
-
-image circle_background = "circle_background.png"
-
-# Вместо использования оператора image можете просто
-# складывать все ваши файлы изображений в папку images.
-# Например, сцену home_background можно вызвать файлом "home_background.png",
-# а eileen happy — "eileen happy.webp", и тогда они появятся в игре.
-
-# Игра начинается здесь:
 label start:
+    call first_scene
 
-    # 1 scene
+    call second_scene
 
+    call third_scene
+
+    return
+
+
+label first_scene:
     scene home_background:
-        zoom 1.7
+            zoom 1.7
 
     show gg at right:
         zoom 0.5
@@ -80,9 +77,7 @@ label start:
     Kirill "Схожу, схожу. Но помни - только ради тебя. Мне эта идея изначально не нравится."
 
 
-
-    # 2 scene
-
+label second_scene:
     scene street_background:
         zoom 1.5
 
@@ -105,8 +100,8 @@ label start:
 
     Kirill "Ну всё, домой приеду, распечатаю, в рамочку поставлю. О, а вот и моя остановочка."
 
-    # 3 scene
 
+label third_scene:
     scene circle_background:
         zoom 2
 
@@ -117,6 +112,4 @@ label start:
 
     Kirill "Ну, привет всем. Особо меня не запоминайте, через 2 недели меня уже здесь не будет."
 
-    Kirill "Надо бы выбрать с кем проведу это время."
-
-    return
+    Kirill "Ладно, ради приличия можно и взглянуть на бедолаг."

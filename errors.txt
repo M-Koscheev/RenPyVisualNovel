@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 26: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    name_xpos 1000000000000000
-                              ^
+File "game/script.rpy", line 68: Indentation mismatch.
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Nov  8 19:37:51 2022
+Wed Dec 14 18:20:08 2022
