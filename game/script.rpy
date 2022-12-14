@@ -26,7 +26,7 @@ label start:
 
     # call third_scene
 
-    call eighth_scene
+    call tenth_scene
 
     return
 
@@ -410,3 +410,31 @@ label nineth_scene_third_choice:
         zoom 0.5
 
     Kirill "Здесь снова опять не занято. Даже грустно как-то. Начинается занятие."
+
+
+label tenth_scene:
+    scene circle_background:
+        zoom 2
+
+    show gg at left:
+        zoom 0.5
+
+    show crush_image at right:
+        zoom 0.5
+    
+    Kirill "Ах, какая красота! Ну как так можно было в один миг взять и наполнить мою жизнь смыслом?"
+
+    Kirill "Всё, надо перестать пялиться"
+
+    scene circle_background:
+        zoom 2
+
+    show gg at left:
+        zoom 0.5
+
+    show teacher_image at right:
+        zoom 0.5
+
+    Teacher "Здравствуйте, дети. Сегодня мы продолжаем изучать разработку игр."
+
+    Teacher "На сегодня задание очень простое, второе занятие ведь. Чтобы играть, нужно зайти в игру, поэтому сегодня будем учиться делать стартовое меню. Приступайте!"
