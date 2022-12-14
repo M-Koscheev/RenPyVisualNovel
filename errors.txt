@@ -2,7 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 68: Indentation mismatch.
+The label fourth_scene_second_choice is defined twice, at File "game/script.rpy", line 202:
+label fourth_scene_second_choice:
+and File "game/script.rpy", line 231:
+label fourth_scene_second_choice:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Dec 14 18:20:08 2022
+Wed Dec 14 19:48:38 2022

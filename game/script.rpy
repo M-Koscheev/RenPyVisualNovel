@@ -3,12 +3,16 @@
     define Kirill = Character('Кирилл')
     define Mother = Character('Мама')
     define Teacher = Character('Учитель')
+    define Zanuda = Character('Зануда')
+    define Clown = Character('Весельчак')
 
     image gg = "GG.png"
 
     image mother_image = "mother.png"
     image crush_image = "crushiha.png"
     image teacher_image = "teacher.png"
+    image nerd_image = "nerd.png"
+    image clown_image = "clown.png"
     
     image home_background = "home_background.png"
     image street_background = "street_background.png"
@@ -20,7 +24,9 @@ label start:
 
     # call second_scene
 
-    call third_scene
+    # call third_scene
+
+    call fourth_scene_third_choice
 
     return
 
@@ -161,3 +167,76 @@ label third_scene:
     Kirill "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
 
     # жесткий движ с выбором того, с кем сидеть
+
+
+label fourth_scene_first_choice:
+    scene circle_background:
+        zoom 2
+
+    show gg at left:
+        zoom 0.5
+
+    Kirill "Естественно! Парень в очках, линзы которого толще монитора, он то мне и поможет с заданиями, да и прокачаться в программировании с ним легче будет, чтобы добиться мою ненаглядную."
+
+    Kirill "Привет, я подсяду?"
+
+    show nerd_image at right:
+        zoom 1
+
+    Zanuda "Подсесть ты бы мог, если бы уже сидел, а ты же сейчас стоишь, поэтому правильно сказать присяду."
+
+    # В голове
+    Kirill "Ну что ещё я мог ожидать? Ладно, надеюсь, что он всё будет делать, а я просто посижу."
+
+    Kirill "Хорошо. Меня Кирилл зовут, а тебя как?"
+
+    Zanuda "А меня Мефодий."
+
+    Zanuda "Хахахахах вот это я пошутил. Я Глеб."
+
+    Kirill "Теперь будем сидеть вместе."
+
+    Zanuda "Ага."
+
+
+label fourth_scene_second_choice:
+    scene circle_background:
+        zoom 2
+
+    show gg at left:
+        zoom 0.5
+
+    Kirill "Парень, который сделал скриншот рабочего стола, удалил все иконки и поставил его на фон?"
+
+    Kirill "Мой вариант! С ним хотя бы весело будет."
+
+    show clown_image at right:
+        zoom 0.5
+
+    Kirill "Привет, я подсяду?"
+
+    Clown "Что-то ты не очень похож на девочку в радужной кофте."
+
+    Clown "Ну ладно. Меня зовут Олег, но друзья зовут играть меня в баскетбол, а тут из-за мамы оказался."
+
+    Kirill "О, какое совпадение, я тоже."
+
+    Kirill "Я Кирилл, кстати. Теперь мы вместе."
+
+    Clown "Сидим?"
+
+    Kirill "Ну, как пойдёт)"
+
+
+label fourth_scene_third_choice:
+    scene circle_background:
+        zoom 2
+
+    show gg at left:
+        zoom 0.5
+
+    Kirill "Ну и правильно. Сидеть ещё с кем-то, знакомиться, бе-е."
+
+    Kirill "Тем более никто не будет мешать ботать =). Но и помогать тоже =( ."
+
+    Kirill "Ладно, вижу цель, не вижу препятствий!"
