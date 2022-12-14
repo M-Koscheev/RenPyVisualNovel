@@ -26,7 +26,7 @@ label start:
 
     # call third_scene
 
-    call fourth_scene_third_choice
+    call sixth_scene_first_choice
 
     return
 
@@ -240,3 +240,62 @@ label fourth_scene_third_choice:
     Kirill "Тем более никто не будет мешать ботать =). Но и помогать тоже =( ."
 
     Kirill "Ладно, вижу цель, не вижу препятствий!"
+
+
+label fifth_scene:
+    scene home_background:
+            zoom 1.7
+
+    show gg at right:
+        zoom 0.5
+
+    show mother_image at left:
+        zoom 0.35
+
+    Mother "Ну что, как прошло первое занятие?"
+
+    Kirill "Да как обычно. Ничего интересного."
+
+    Kirill "Посидел, ничего не понял, уехал. Бесполезно время провёл."
+
+    Mother "Ну, что, даже ни с кем не познакомился? Никто не приглянулся?"
+
+    # жесткий выбор
+
+
+label sixth_scene_first_choice:
+    scene home_background:
+            zoom 1.7
+
+    show gg at right:
+        zoom 0.5
+
+    show mother_image at left:
+        zoom 0.35
+
+    Kirill "Нет, ты что? Смог бы я за раз в кого-то влю...кхм кхм всмотреться."
+
+    Mother "Ну ладно. Знаешь, я тут подумала, если тебе совсем  не  понравилось, то чё я тебя буду мучить? Я же не тиран."
+
+    Mother "Можешь больше никуда не ездить."
+
+    # реализовать неуверенно
+    Kirill "Да знаешь, я же мужчина, если сказал, что на пару занятий схожу ради тебя, значит пару занятий точно отхожу."
+
+    # реализовать радостно
+    Mother "Ой, какой у меня мужчи-ина растёт. Ну, иди руки мыть, щас есть наложу."
+
+
+label sixth_scene_second_choice:
+    scene home_background:
+            zoom 1.7
+
+    show gg at right:
+        zoom 0.5
+
+    show mother_image at left:
+        zoom 0.35
+
+    Kirill "Если честно, есть там одна девочка…"
+
+    Mother "Ах, кто-то влюбился))))) Ну, рассказывай, какая она?"
