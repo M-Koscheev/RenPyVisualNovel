@@ -2,7 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 68: Indentation mismatch.
+File "game/gui.rpy", line 152: expected 'word' not found.
+    define gui.
+               ^
+
+File "game/gui.rpy", line 153: expected statement.
+    _width = None
+           ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Dec 14 18:20:08 2022
+Wed Dec 14 23:07:27 2022
