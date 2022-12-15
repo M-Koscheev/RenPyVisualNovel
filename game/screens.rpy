@@ -301,13 +301,13 @@ screen navigation():
 
         else:
 
-            textbutton _("История") action ShowMenu("history")
+            #textbutton _("История") action ShowMenu("history")
 
             textbutton _("Сохранить") action ShowMenu("save")
 
         textbutton _("Загрузить") action ShowMenu("load")
 
-        textbutton _("Настройки") action ShowMenu("preferences")
+        #textbutton _("Настройки") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -317,12 +317,11 @@ screen navigation():
 
             textbutton _("Главное меню") action MainMenu()
 
-        textbutton _("Об игре") action ShowMenu("about")
+        #textbutton _("Об игре") action ShowMenu("about")
+        #if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-
-            ## Помощь не необходима и не относится к мобильным устройствам.
-            textbutton _("Помощь") action ShowMenu("help")
+            # Помощь не необходима и не относится к мобильным устройствам.
+            #textbutton _("Помощь") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
@@ -866,44 +865,44 @@ style slider_vbox:
 ##
 ## https://www.renpy.org/doc/html/history.html
 
-screen history():
-
-    tag menu
-
-    ## Избегайте предсказывания этого экрана, так как он может быть очень
-    ## массивным.
-    predict False
-
-    use game_menu(_("История"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
-
-        style_prefix "history"
-
-        for h in _history_list:
-
-            window:
-
-                ## Это всё правильно уравняет, если history_height будет
-                ## установлен на None.
-                has fixed:
-                    yfit True
-
-                if h.who:
-
-                    label h.who:
-                        style "history_name"
-                        substitute False
-
-                        ## Берёт цвет из who параметра персонажа, если он
-                        ## установлен.
-                        if "color" in h.who_args:
-                            text_color h.who_args["color"]
-
-                $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
-                text what:
-                    substitute False
-
-        if not _history_list:
-            label _("История диалогов пуста.")
+# screen history():
+#
+#     tag menu
+#
+#     ## Избегайте предсказывания этого экрана, так как он может быть очень
+#     ## массивным.
+#     predict False
+#
+#     use game_menu(_("История"), scroll=("vpgrid" if gui.history_height else "viewport"), yinitial=1.0):
+#
+#         style_prefix "history"
+#
+#         for h in _history_list:
+#
+#             window:
+#
+#                 ## Это всё правильно уравняет, если history_height будет
+#                 ## установлен на None.
+#                 has fixed:
+#                     yfit True
+#
+#                 if h.who:
+#
+#                     label h.who:
+#                         style "history_name"
+#                         substitute False
+#
+#                         ## Берёт цвет из who параметра персонажа, если он
+#                         ## установлен.
+#                         if "color" in h.who_args:
+#                             text_color h.who_args["color"]
+#
+#                 $ what = renpy.filter_text_tags(h.what, allow=gui.history_allow_tags)
+#                 text what:
+#                     substitute False
+#
+#         if not _history_list:
+#             label _("История диалогов пуста.")
 
 
 ## Это определяет, какие теги могут отображаться на экране истории.
@@ -956,33 +955,32 @@ style history_label_text:
 ## (keyboard_help, mouse_help, и gamepad_help), чтобы показывать актуальную
 ## помощь.
 
-screen help():
-
-    tag menu
-
-    default device = "keyboard"
-
-    use game_menu(_("Помощь"), scroll="viewport"):
-
-        style_prefix "help"
-
-        vbox:
-            spacing 23
-
-            hbox:
-
-                textbutton _("Клавиатура") action SetScreenVariable("device", "keyboard")
-                textbutton _("Мышь") action SetScreenVariable("device", "mouse")
-
-                if GamepadExists():
-                    textbutton _("Геймпад") action SetScreenVariable("device", "gamepad")
-
-            if device == "keyboard":
-                use keyboard_help
-            elif device == "mouse":
-                use mouse_help
-            elif device == "gamepad":
-                use gamepad_help
+# screen help():
+#     tag menu
+#
+#     default device = "keyboard"
+#
+#     use game_menu(_("Помощь"), scroll="viewport"):
+#
+#         style_prefix "help"
+#
+#         vbox:
+#             spacing 23
+#
+#             hbox:
+#
+#                 textbutton _("Клавиатура") action SetScreenVariable("device", "keyboard")
+#                 textbutton _("Мышь") action SetScreenVariable("device", "mouse")
+#
+#                 if GamepadExists():
+#                     textbutton _("Геймпад") action SetScreenVariable("device", "gamepad")
+#
+#             if device == "keyboard":
+#                 use keyboard_help
+#             elif device == "mouse":
+#                 use mouse_help
+#             elif device == "gamepad":
+#                 use gamepad_help
 
 
 screen keyboard_help():
