@@ -2,13 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/gui.rpy", line 152: expected 'word' not found.
-    define gui.
-               ^
+The label fourth_scene_second_choice is defined twice, at File "game/script.rpy", line 202:
+label fourth_scene_second_choice:
+and File "game/script.rpy", line 231:
+label fourth_scene_second_choice:
 
-File "game/gui.rpy", line 153: expected statement.
-    _width = None
-           ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Dec 14 23:07:27 2022
+Wed Dec 14 19:48:38 2022
