@@ -5,6 +5,8 @@
     define Teacher = Character('Учитель')
     define Zanuda = Character('Зануда')
     define Clown = Character('Весельчак')
+    define Villain = Character('Лёша')
+    define Crush = Character("Крашиха")
 
     image gg = "GG.png"
 
@@ -13,6 +15,7 @@
     image teacher_image = "teacher.png"
     image nerd_image = "nerd.png"
     image clown_image = "clown.png"
+    image villain_image = "villain.png"
     
     image home_background = "home_background.png"
     image street_background = "street_background.png"
@@ -438,3 +441,67 @@ label tenth_scene:
     Teacher "Здравствуйте, дети. Сегодня мы продолжаем изучать разработку игр."
 
     Teacher "На сегодня задание очень простое, второе занятие ведь. Чтобы играть, нужно зайти в игру, поэтому сегодня будем учиться делать стартовое меню. Приступайте!"
+
+
+label eleventh_scene_first_choice:
+    scene circle_background:
+        zoom 2
+
+    show gg at left:
+        zoom 0.5
+
+    Kirill "А этот ботаник не такой уж и бесполезный."
+
+    scene circle_background:
+        zoom 2
+
+    show gg at left:
+        zoom 0.5
+
+    show nerd_image at left:
+        zoom 1
+
+    show teacher_image at right:
+        zoom 0.33
+
+    # жесткий движ с репликами кучи героев
+
+    Teacher "Есть такие кто всё сделали?"
+
+    Kirill "Да, мы."
+
+    Villain "Как? 0_0"
+
+    Crush "(проявляет интерес)"
+
+    Kirill "ААооаоаааао она на меня ПОСМОТРЕЛАААА. Мне надо быстрее изучить эту разработку игр, пока у меня сердце не разорвалось от счастья."
+
+    Teacher "Хорошо, сейчас посмотрю и можете идти."
+
+    Kirill "Слушай, это, конечно, всё хорошо, что ты сам почти задание сделал и мне ничего не надо делать, но я решил, что это не моё. Я, наверное, пересяду….вон к тому парню"
+
+    # ???
+    Kirill "Он выглядит как человек, у которого в голове есть что-то кроме скучной информатики. Да, по правде говоря, у него её вообще в голове нет."
+
+    Zanuda "Это не просто информатика, это разработка игр. Программирование, в крайнем случае."
+
+    Kirill "Прощай."
+
+    scene circle_background:
+        zoom 2
+
+    show gg at left:
+        zoom 0.5
+
+    show clown_image at left:
+        zoom 1
+
+    Kirill "Привет, я подсяду?"
+
+    Clown "Что-то ты не очень похож на девочку в радужной кофте."
+
+    Clown "Ну ладно. Меня зовут Олег, но друзья зовут играть меня в баскетбол, а тут из-за мамы оказался."
+
+    Kirill "О, какое совпадение, я тоже."
+
+    Kirill "Я Кирилл, кстати. Теперь мы вместе."
