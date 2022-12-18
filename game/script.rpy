@@ -21,13 +21,31 @@
     image street_background = "street_background.png"
     image circle_background = "circle_background.png"
 
+    $ choice_sit_with = 0 # 1 = Nerd; 2 = Clown; 3 = With no one
+
 
 label start:
     # call first_scene
 
     # call second_scene
 
-    # call third_scene
+    call third_scene
+
+    menu:
+        "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
+        "Сесть с Заучкой":
+            $ choice_sit_with = 1
+        "Сесть с Весёлым парнем":
+            $ choice_sit_with = 2
+        "Сесть одному":
+            $ choice_sit_with = 3
+    
+    if choice_sit_with == 1:
+        call fourth_scene_first_choice
+    elif choice_sit_with == 2:
+        call fourth_scene_second_choice
+    elif choice_sit_with == 3:
+        call fourth_scene_third_choice
 
     call tenth_scene
 
@@ -167,7 +185,16 @@ label third_scene:
 
     Kirill "Я должен буду разобраться в этой разработке игр и превзойти этого Лёшу, чтобы рыженькая сидела со мной!"
 
-    Kirill "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
+    menu:
+        "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
+        "Сесть с Заучкой":
+            $ choice_sit_with = 1
+        "Сесть с Весёлым парнем":
+            $ choice_sit_with = 2
+        "Сесть одному":
+            $ choice_sit_with = 3
+
+    # Kirill "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
 
     # жесткий движ с выбором того, с кем сидеть
 

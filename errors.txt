@@ -2,11 +2,21 @@
 errors listed below, and try again.
 
 
-The label fourth_scene_second_choice is defined twice, at File "game/script.rpy", line 202:
-label fourth_scene_second_choice:
-and File "game/script.rpy", line 231:
-label fourth_scene_second_choice:
+File "game/script.rpy", line 24: expected statement.
+    choice_sit_with = 0 
+                    ^
 
+File "game/script.rpy", line 37: expected statement.
+    choice_sit_with = 1
+                    ^
+
+File "game/script.rpy", line 39: expected statement.
+    choice_sit_with = 2
+                    ^
+
+File "game/script.rpy", line 41: expected statement.
+    choice_sit_with = 3
+                    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Dec 14 19:48:38 2022
+Sun Dec 18 13:30:26 2022
