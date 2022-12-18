@@ -21,25 +21,16 @@
     image street_background = "street_background.png"
     image circle_background = "circle_background.png"
 
-    $ choice_sit_with = 0 # 1 = Nerd; 2 = Clown; 3 = With no one
-
+    default choice_sit_with = 0 # 1 = Nerd; 2 = Clown; 3 = With no one
+    default tell_about_liked_girl_to_mom = 0 # 1 - lie 2 - say truth
 
 label start:
-    # call first_scene
+    call first_scene
 
-    # call second_scene
+    call second_scene
 
     call third_scene
 
-    menu:
-        "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
-        "Сесть с Заучкой":
-            $ choice_sit_with = 1
-        "Сесть с Весёлым парнем":
-            $ choice_sit_with = 2
-        "Сесть одному":
-            $ choice_sit_with = 3
-    
     if choice_sit_with == 1:
         call fourth_scene_first_choice
     elif choice_sit_with == 2:
@@ -47,7 +38,34 @@ label start:
     elif choice_sit_with == 3:
         call fourth_scene_third_choice
 
+    call fifth_scene
+
+    if tell_about_liked_girl_to_mom == 1:
+        call sixth_scene_first_choice
+    elif tell_about_liked_girl_to_mom == 2:
+        call sixth_scene_second_choice
+
+        call seventh_scene
+
+        call eighth_scene
+
+    
+
+    if choice_sit_with == 1:
+        call nineth_scene_first_choice
+    elif choice_sit_with == 2:
+        call nineth_scene_second_choice
+    elif choice_sit_with == 3:
+        call nineth_scene_third_choice
+
     call tenth_scene
+
+    if choice_sit_with == 1:
+        call eleventh_scene_first_choice
+    elif choice_sit_with == 2:
+        call eleventh_scene_first_choice # TODO
+    elif choice_sit_with == 3:
+        call eleventh_scene_first_choice # TODO
 
     return
 
@@ -106,6 +124,8 @@ label first_scene:
 
     Kirill "Схожу, схожу. Но помни - только ради тебя. Мне эта идея изначально не нравится."
 
+    return
+
 
 label second_scene:
     scene street_background:
@@ -138,6 +158,8 @@ label second_scene:
     Kirill "Ну всё, домой приеду, распечатаю, в рамочку поставлю. О, а вот и моя остановочка."
 
     # черный экран конец сцены
+
+    return
     
 label third_scene:
     scene circle_background:
@@ -194,6 +216,8 @@ label third_scene:
         "Сесть одному":
             $ choice_sit_with = 3
 
+    return
+
     # Kirill "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
 
     # жесткий движ с выбором того, с кем сидеть
@@ -228,6 +252,8 @@ label fourth_scene_first_choice:
 
     Zanuda "Ага."
 
+    return
+
 
 label fourth_scene_second_choice:
     scene circle_background:
@@ -257,6 +283,8 @@ label fourth_scene_second_choice:
 
     Kirill "Ну, как пойдёт)"
 
+    return
+
 
 label fourth_scene_third_choice:
     scene circle_background:
@@ -270,6 +298,8 @@ label fourth_scene_third_choice:
     Kirill "Тем более никто не будет мешать ботать =). Но и помогать тоже =( ."
 
     Kirill "Ладно, вижу цель, не вижу препятствий!"
+
+    return
 
 
 label fifth_scene:
@@ -288,9 +318,16 @@ label fifth_scene:
 
     Kirill "Посидел, ничего не понял, уехал. Бесполезно время провёл."
 
-    Mother "Ну, что, даже ни с кем не познакомился? Никто не приглянулся?"
+    # Mother "Ну, что, даже ни с кем не познакомился? Никто не приглянулся?"
 
-    # жесткий выбор
+    menu:
+        "Ну, что, даже ни с кем не познакомился? Никто не приглянулся?"
+        "Соврать":
+            $ tell_about_liked_girl_to_mom = 1
+        "Сказать честно":
+            $ tell_about_liked_girl_to_mom = 2
+
+    return
 
 
 label sixth_scene_first_choice:
@@ -315,6 +352,8 @@ label sixth_scene_first_choice:
     # реализовать радостно
     Mother "Ой, какой у меня мужчи-ина растёт. Ну, иди руки мыть, щас есть наложу."
 
+    return
+
 
 label sixth_scene_second_choice:
     scene home_background:
@@ -329,6 +368,8 @@ label sixth_scene_second_choice:
     Kirill "Если честно, есть там одна девочка…"
 
     Mother "Ах, кто-то влюбился))))) Ну, рассказывай, какая она?"
+
+    return
 
 
 label seventh_scene:
@@ -348,6 +389,8 @@ label seventh_scene:
     Kirill "Да ладно, угораю. На самом деле я даже не совсем запомнил какая она."
 
     Kirill "Как только мой взгляд упал на неё, я смог отвести его только через силу. Помню только, что у неё рыжие волосы."
+
+    return
 
 
 label eighth_scene:
@@ -375,6 +418,8 @@ label eighth_scene:
     Kirill "Мам, какой репетитор по кружку? Да и где я время на него найду, если у меня школа и программирование?"
 
     Mother "А, точно, это и так «репетитор». Ну ладно, но ты всё равно можешь рассчитывать на мою помощь."
+
+    return
 
 
 label nineth_scene_first_choice:
@@ -410,6 +455,8 @@ label nineth_scene_first_choice:
     # В голове
     Kirill "Надо ли оно мне было? Повеселился, молодец. Начинается занятие."
 
+    return
+
 
 label nineth_scene_second_choice:
     scene circle_background:
@@ -430,6 +477,8 @@ label nineth_scene_second_choice:
     Kirill "Мэээн"
 
     Clown "Мэээээн. Начинается занятие."
+    
+    return
 
 
 label nineth_scene_third_choice:
@@ -440,6 +489,8 @@ label nineth_scene_third_choice:
         zoom 0.5
 
     Kirill "Здесь снова опять не занято. Даже грустно как-то. Начинается занятие."
+
+    return
 
 
 label tenth_scene:
@@ -468,6 +519,8 @@ label tenth_scene:
     Teacher "Здравствуйте, дети. Сегодня мы продолжаем изучать разработку игр."
 
     Teacher "На сегодня задание очень простое, второе занятие ведь. Чтобы играть, нужно зайти в игру, поэтому сегодня будем учиться делать стартовое меню. Приступайте!"
+
+    return
 
 
 label eleventh_scene_first_choice:
@@ -532,3 +585,5 @@ label eleventh_scene_first_choice:
     Kirill "О, какое совпадение, я тоже."
 
     Kirill "Я Кирилл, кстати. Теперь мы вместе."
+
+    return
