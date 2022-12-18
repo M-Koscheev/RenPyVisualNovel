@@ -5,7 +5,9 @@
     define Teacher = Character('Учитель')
     define Zanuda = Character('Зануда')
     define Clown = Character('Весельчак')
+    define Villain = Character('Лёша')
     define Lesha = Character('Леша')
+    define Crush = Character("Крашиха")
     define Redhead = Character('Рыженькая')
     define Storyteller = Character('Рассказчик')
 
@@ -16,23 +18,57 @@
     image teacher_image = "teacher.png"
     image nerd_image = "nerd.png"
     image clown_image = "clown.png"
-    image lesha_image = "villain.png"
-
+    image villain_image = "villain.png"
+    
     image home_background = "home_background.png"
     image street_background = "street_background.png"
     image circle_background = "circle_background.png"
 
+    default choice_sit_with = 0 # 1 = Nerd; 2 = Clown; 3 = With no one
+    default tell_about_liked_girl_to_mom = 0 # 1 - lie 2 - say truth
 
 label start:
-    #call first_scene
+    call first_scene
 
-    #call second_scene
+    call second_scene
 
-    #call third_scene
+    call third_scene
 
-    #call tenth_scene
+    if choice_sit_with == 1:
+        call fourth_scene_first_choice
+    elif choice_sit_with == 2:
+        call fourth_scene_second_choice
+    elif choice_sit_with == 3:
+        call fourth_scene_third_choice
 
-    call eleventh_scene_first_first
+    call fifth_scene
+
+    if tell_about_liked_girl_to_mom == 1:
+        call sixth_scene_first_choice
+    elif tell_about_liked_girl_to_mom == 2:
+        call sixth_scene_second_choice
+
+        call seventh_scene
+
+        call eighth_scene
+
+    
+
+    if choice_sit_with == 1:
+        call nineth_scene_first_choice
+    elif choice_sit_with == 2:
+        call nineth_scene_second_choice
+    elif choice_sit_with == 3:
+        call nineth_scene_third_choice
+
+    call tenth_scene
+
+    if choice_sit_with == 1:
+        call eleventh_scene_first_choice
+    elif choice_sit_with == 2:
+        call eleventh_scene_first_choice # TODO
+    elif choice_sit_with == 3:
+        call eleventh_scene_first_choice # TODO
 
     return
 
@@ -76,7 +112,7 @@ label first_scene:
         zoom 0.5
     
     # мысли
-    Kirill "Снова опять этот Лёша, в каждой бочке затычка. СыН мАмИноЙ ПодРуГи, конечно. Лёша выиграл это, Лёша сделал то, а ты оболтус. Угораздило же наших мам быть подругами."
+    Kirill "{i}Снова опять этот Лёша, в каждой бочке затычка. СыН мАмИноЙ ПодРуГи, конечно. Лёша выиграл это, Лёша сделал то, а ты оболтус. Угораздило же наших мам быть подругами.{/i}"
 
     scene home_background:
         zoom 1.7
@@ -91,6 +127,8 @@ label first_scene:
 
     Kirill "Схожу, схожу. Но помни - только ради тебя. Мне эта идея изначально не нравится."
 
+    return
+
 
 label second_scene:
     scene street_background:
@@ -102,27 +140,12 @@ label second_scene:
     Kirill "Ну зачем я согласился пойти на эту разработку? Щас все пацаны сидят в «Аппетитно и двоеточие», общаются, веселятся, а я как дурак дома поел и на автобус."
 
     Kirill "Ладно хоть всего пару раз так придётся съездить, а то через месяц я бы на стену лез от недостатка отдыха в крови."
-    
-    # достает телефон (смена картинки)
-    # отдельный слайд
-    Kirill "Даже здесь это ваше программирование."
 
-    # на экране пользователя появляется кнопка "Пройти тест"
-    Kirill "Ещё и тест предлагают пройти."
-
-    """
-    здесь должен быть тест
-    """
-
-    Kirill "Ну ладно, да помогут мне знания Паскаля с 7-го класса."
-
-    Kirill "Дальше идёт ничего не значащий тест. Просто по приколу."
-
-    Kirill "Предлагаю сделать пародию на старинные тесты во ВКонтактике 'Кто ты в мире программирования', а задачами будут маленькие коды и варианты ответа: сделать так/сделать так или находит это/находит то и потом выведет ему на экран кто он(пользователь)."
-
-    Kirill "Ну всё, домой приеду, распечатаю, в рамочку поставлю. О, а вот и моя остановочка."
+    Kirill "О, а вот и моя остановочка."
 
     # черный экран конец сцены
+
+    return
     
 label third_scene:
     scene circle_background:
@@ -131,20 +154,24 @@ label third_scene:
     show gg at left:
         zoom 0.5
 
-    Kirill "А вот и она - Красная комната."
+
+    Kirill "{i}А вот и она - Красная комната.{/i}"
 
     Kirill "Ну, привет всем. Особо меня не запоминайте, через 2 недели меня уже здесь не будет."
 
-    Kirill "Ладно, ради приличия можно и взглянуть на бедолаг."
+
+    Kirill "{i}Ладно, ради приличия можно и взглянуть на бедолаг.{/i}"
     
     # исправить изображение девушки
     show crush_image at right:
         zoom 0.5
     
-    Kirill "Это….что…это кто такое красивое создание из рая выпустил? Я даже не знаю от чего сейчас щурюсь: от её лучезарности или от того, что я запрокинул голову наверх и сейчас мне в глаза светят лампочки?"
+
+    Kirill "{i}Это….что…это кто такое красивое создание из рая выпустил? Я даже не знаю от чего сейчас щурюсь: от её лучезарности или от того, что я запрокинул голову наверх и сейчас мне в глаза светят лампочки?{/i}"
 
     # Убрать надпись в голове и сделать это как надпись в имени героя
-    Kirill "(в голове)Так, Кирилл, собери себя в руки, хватит кринжа наваливать. Встань нормально."
+
+    Kirill "{i}Так, Кирилл, собери себя в руки, хватит кринжа наваливать. Встань нормально.{/i}"
 
     # second_part of third_scene
 
@@ -158,21 +185,29 @@ label third_scene:
 
     Teacher "Не люблю затягивать, поэтому начинаем опросик, чтобы сразу понять кто разбирается, а кто из-под палки пришёл."
 
-    # Сделать вопросы и то что Лёша на все ответил
-
     Teacher "Разбейтесь на пары и решайте задания"
 
     # жесткий движ с тем как они пересаживаются
 
-    Kirill "Что? Опять этот Лёша! Даже здесь умудряется малину испортить. Да и она видимо из тех, кто посередине останется, как папа говорил."
 
-    Kirill "Так, ну ладно, этот курс становится интереснее."
+    Kirill "{i}Что? Опять этот Лёша! Даже здесь умудряется малину испортить. Да и она видимо из тех, кто посередине останется, как папа говорил.{/i}"
 
-    Kirill "Я должен буду разобраться в этой разработке игр и превзойти этого Лёшу, чтобы рыженькая сидела со мной!"
 
-    Kirill "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
+    Kirill "{i}Так, ну ладно, этот курс становится интереснее.{/i}"
 
-    # жесткий движ с выбором того, с кем сидеть
+
+    Kirill "{i}Я должен буду разобраться в этой разработке игр и превзойти этого Лёшу, чтобы рыженькая сидела со мной!{/i}"
+
+    menu:
+        "Раз с ней сесть не получилось, надо бы выбрать того, с кем я проведу это время."
+        "Сесть с Заучкой":
+            $ choice_sit_with = 1
+        "Сесть с Весёлым парнем":
+            $ choice_sit_with = 2
+        "Сесть одному":
+            $ choice_sit_with = 3
+
+    return
 
 
 label fourth_scene_first_choice:
@@ -182,7 +217,8 @@ label fourth_scene_first_choice:
     show gg at left:
         zoom 0.5
 
-    Kirill "Естественно! Парень в очках, линзы которого толще монитора, он то мне и поможет с заданиями, да и прокачаться в программировании с ним легче будет, чтобы добиться мою ненаглядную."
+
+    Kirill "{i}Естественно! Парень в очках, линзы которого толще монитора, он то мне и поможет с заданиями, да и прокачаться в программировании с ним легче будет, чтобы добиться мою ненаглядную.{/i}"
 
     Kirill "Привет, я подсяду?"
 
@@ -191,8 +227,8 @@ label fourth_scene_first_choice:
 
     Zanuda "Подсесть ты бы мог, если бы уже сидел, а ты же сейчас стоишь, поэтому правильно сказать присяду."
 
-    # В голове
-    Kirill "Ну что ещё я мог ожидать? Ладно, надеюсь, что он всё будет делать, а я просто посижу."
+
+    Kirill "{i}Ну что ещё я мог ожидать? Ладно, надеюсь, что он всё будет делать, а я просто посижу.{/i}"
 
     Kirill "Хорошо. Меня Кирилл зовут, а тебя как?"
 
@@ -204,6 +240,8 @@ label fourth_scene_first_choice:
 
     Zanuda "Ага."
 
+    return
+
 
 label fourth_scene_second_choice:
     scene circle_background:
@@ -212,9 +250,11 @@ label fourth_scene_second_choice:
     show gg at left:
         zoom 0.5
 
-    Kirill "Парень, который сделал скриншот рабочего стола, удалил все иконки и поставил его на фон?"
 
-    Kirill "Мой вариант! С ним хотя бы весело будет."
+    Kirill "{i}Парень, который сделал скриншот рабочего стола, удалил все иконки и поставил его на фон?{/i}"
+
+
+    Kirill "{i}Мой вариант! С ним хотя бы весело будет.{/i}"
 
     show clown_image at right:
         zoom 0.5
@@ -233,6 +273,8 @@ label fourth_scene_second_choice:
 
     Kirill "Ну, как пойдёт)"
 
+    return
+
 
 label fourth_scene_third_choice:
     scene circle_background:
@@ -246,6 +288,8 @@ label fourth_scene_third_choice:
     Kirill "Тем более никто не будет мешать ботать =). Но и помогать тоже =( ."
 
     Kirill "Ладно, вижу цель, не вижу препятствий!"
+
+    return
 
 
 label fifth_scene:
@@ -264,9 +308,14 @@ label fifth_scene:
 
     Kirill "Посидел, ничего не понял, уехал. Бесполезно время провёл."
 
-    Mother "Ну, что, даже ни с кем не познакомился? Никто не приглянулся?"
+    menu:
+        "Ну, что, даже ни с кем не познакомился? Никто не приглянулся?"
+        "Соврать":
+            $ tell_about_liked_girl_to_mom = 1
+        "Сказать честно":
+            $ tell_about_liked_girl_to_mom = 2
 
-    # жесткий выбор
+    return
 
 
 label sixth_scene_first_choice:
@@ -281,20 +330,21 @@ label sixth_scene_first_choice:
 
     Kirill "Нет, ты что? Смог бы я за раз в кого-то влю...кхм кхм всмотреться."
 
-    Mother "Ну ладно. Знаешь, я тут подумала, если тебе совсем  не  понравилось, то чё я тебя буду мучить? Я же не тиран."
+
+    Mother "Ну ладно. Знаешь, я тут подумала, если тебе совсем не понравилось, то чё я тебя буду мучить? Я же не тиран."
 
     Mother "Можешь больше никуда не ездить."
 
-    # реализовать неуверенно
     Kirill "Да знаешь, я же мужчина, если сказал, что на пару занятий схожу ради тебя, значит пару занятий точно отхожу."
 
-    # реализовать радостно
     Mother "Ой, какой у меня мужчи-ина растёт. Ну, иди руки мыть, щас есть наложу."
+
+    return
 
 
 label sixth_scene_second_choice:
     scene home_background:
-            zoom 1.7
+        zoom 1.7
 
     show gg at right:
         zoom 0.5
@@ -306,10 +356,12 @@ label sixth_scene_second_choice:
 
     Mother "Ах, кто-то влюбился))))) Ну, рассказывай, какая она?"
 
+    return
+
 
 label seventh_scene:
     scene home_background:
-            zoom 1.7
+        zoom 1.7
 
     show gg at right:
         zoom 0.5
@@ -324,6 +376,8 @@ label seventh_scene:
     Kirill "Да ладно, угораю. На самом деле я даже не совсем запомнил какая она."
 
     Kirill "Как только мой взгляд упал на неё, я смог отвести его только через силу. Помню только, что у неё рыжие волосы."
+
+    return
 
 
 label eighth_scene:
@@ -351,6 +405,8 @@ label eighth_scene:
     Kirill "Мам, какой репетитор по кружку? Да и где я время на него найду, если у меня школа и программирование?"
 
     Mother "А, точно, это и так «репетитор». Ну ладно, но ты всё равно можешь рассчитывать на мою помощь."
+
+    return
 
 
 label nineth_scene_first_choice:
@@ -384,7 +440,9 @@ label nineth_scene_first_choice:
     Zanuda "Первая – …"
 
     # В голове
-    Kirill "Надо ли оно мне было? Повеселился, молодец. Начинается занятие."
+    Kirill "{i}Надо ли оно мне было? Повеселился, молодец. Начинается занятие.{/i}"
+
+    return
 
 
 label nineth_scene_second_choice:
@@ -406,6 +464,8 @@ label nineth_scene_second_choice:
     Kirill "Мэээн"
 
     Clown "Мэээээн. Начинается занятие."
+    
+    return
 
 
 label nineth_scene_third_choice:
@@ -416,6 +476,8 @@ label nineth_scene_third_choice:
         zoom 0.5
 
     Kirill "Здесь снова опять не занято. Даже грустно как-то. Начинается занятие."
+
+    return
 
 
 label tenth_scene:
@@ -428,9 +490,11 @@ label tenth_scene:
     show crush_image at right:
         zoom 0.5
     
-    Kirill "Ах, какая красота! Ну как так можно было в один миг взять и наполнить мою жизнь смыслом?"
 
-    Kirill "Всё, надо перестать пялиться"
+    Kirill "{i}Ах, какая красота! Ну как так можно было в один миг взять и наполнить мою жизнь смыслом?{/i}"
+
+
+    Kirill "{i}Всё, надо перестать пялиться{/i}"
 
     scene circle_background:
         zoom 2
@@ -442,8 +506,9 @@ label tenth_scene:
         zoom 0.5
 
     Teacher "Здравствуйте, дети. Сегодня мы продолжаем изучать разработку игр."
-
     Teacher "На сегодня задание очень простое, второе занятие ведь. Чтобы играть, нужно зайти в игру, поэтому сегодня будем учиться делать стартовое меню. Приступайте!"
+
+	return
 
 label eleventh_scene_first_first:
     # этот вариант доступен при выборе первого варианта в 9 сцене
@@ -452,7 +517,6 @@ label eleventh_scene_first_first:
     # халява + дотошный за кадром объяснит//  ГГ: А этот
     # ботаник не такой уж и бесполезный. После урока: У: Есть
     # такие кто всё сделали? ГГ: Да, мы. //Училка меняется на
-    # Лёшу// Л: Как? 0_0  //потом Лёша меняется на
     # рыженькую// Р: (проявляет интерес) ГГ(в голове):
     # ААооаоаааао она на меня ПОСМОТРЕЛАААА. Мне надо
     # быстрее изучить эту разработку игр, пока у меня сердце
@@ -1323,3 +1387,5 @@ label first_ending:
     Storyteller "Щас бы был программистом и какие никакие деньги получал, а если бы развивался, то ой как припеваючи бы жил»."
 
     Storyteller "Так и не дают ему покоя эти вопросы, на которые, чем старше он становится, тем всё больше склоняется ответить – нет..."
+
+	return
