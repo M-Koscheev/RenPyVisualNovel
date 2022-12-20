@@ -2,21 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 24: expected statement.
-    choice_sit_with = 0 
-                    ^
-
-File "game/script.rpy", line 37: expected statement.
-    choice_sit_with = 1
-                    ^
-
-File "game/script.rpy", line 39: expected statement.
-    choice_sit_with = 2
-                    ^
-
-File "game/script.rpy", line 41: expected statement.
-    choice_sit_with = 3
-                    ^
+File "game/script.rpy", line 190: end of line expected.
+(Perhaps you left out a " at the end of the first line.)
+    """
+        Стратег. "Хмм, код не работает. Может ничего не менять и запустить его снова?"
+                   ^
+        
+        """
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Dec 18 13:30:26 2022
+Tue Dec 20 16:15:08 2022
