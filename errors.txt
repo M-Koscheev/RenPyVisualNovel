@@ -2,6 +2,7 @@
 errors listed below, and try again.
 
 
+<<<<<<< HEAD
 File "game/script.rpy", line 190: end of line expected.
 (Perhaps you left out a " at the end of the first line.)
     """
@@ -12,3 +13,11 @@ File "game/script.rpy", line 190: end of line expected.
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
 Tue Dec 20 16:15:08 2022
+=======
+File "game/script.rpy", line 17: expected 'simple_expression' not found.
+    xpos = 100
+         ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Tue Dec 20 14:58:50 2022
+>>>>>>> d207a19c4ef3d872325717a554e61f269c89d335
