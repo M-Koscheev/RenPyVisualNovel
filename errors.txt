@@ -2,21 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 24: expected statement.
-    choice_sit_with = 0 
-                    ^
-
-File "game/script.rpy", line 37: expected statement.
-    choice_sit_with = 1
-                    ^
-
-File "game/script.rpy", line 39: expected statement.
-    choice_sit_with = 2
-                    ^
-
-File "game/script.rpy", line 41: expected statement.
-    choice_sit_with = 3
-                    ^
+File "game/script.rpy", line 17: expected 'simple_expression' not found.
+    xpos = 100
+         ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Dec 18 13:30:26 2022
+Tue Dec 20 14:58:50 2022

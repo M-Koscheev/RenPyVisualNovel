@@ -11,17 +11,51 @@
     define Redhead = Character('Рыженькая')
     define Storyteller = Character('Рассказчик')
 
-    image gg = "GG.png"
+    # image gg = Image("GG.png", xpos = 100, xzoom = 0.5, yzoom = 0.5)
+    image gg:
+        "GG.png"
+        xpos 250
+        ypos 1300
+        zoom 0.65
+        rotate 180
+        yzoom -1
 
-    image mother_image = "mother.png"
-    image crush_image = "crushiha.png"
-    image teacher_image = "teacher.png"
-    image nerd_image = "nerd.png"
-    image clown_image = "clown.png"
-    image villain_image = "villain.png"
+    image mother_image:
+        "mother.png"
+        xpos 1900
+        ypos 1150
+        zoom 0.45
+
+    image crush_image:
+        "crushiha.png"
+        zoom 0.7
+        xpos 1600
+        ypos 2100
+
+    image teacher_image:
+        "teacher.png"
+        zoom 1.2
+        xpos 800
+        ypos 250
+
+    image nerd_image:
+        "nerd.png"
+
+    image clown_image:
+        "clown.png"
+        zoom 0.55
+
+    image villain_image:
+        "villain.png"
     
-    image home_background = "home_background.png"
-    image street_background = "street_background.png"
+    image home_background:
+        "home_background.png"
+        zoom 0.35
+
+    image street_background:
+        "street_background.png"
+        zoom 0.5
+
     image circle_background = "circle_background.png"
 
     default choice_sit_with = 0 # 1 = Nerd; 2 = Clown; 3 = With no one
@@ -52,8 +86,6 @@ label start:
 
         call eighth_scene
 
-    
-
     if choice_sit_with == 1:
         call nineth_scene_first_choice
     elif choice_sit_with == 2:
@@ -77,11 +109,9 @@ label first_scene:
     scene home_background:
             zoom 1.7
 
-    show gg at right:
-        zoom 0.5
-
-    show mother_image at left:
-        zoom 0.35
+    show gg
+        
+    show mother_image
 
     Kirill "Да кому эти игры вообще нужны?"
 
@@ -108,8 +138,7 @@ label first_scene:
     scene home_background:
         zoom 1.7
 
-    show gg at right:
-        zoom 0.5
+    show gg
     
     # мысли
     Kirill "{i}Снова опять этот Лёша, в каждой бочке затычка. СыН мАмИноЙ ПодРуГи, конечно. Лёша выиграл это, Лёша сделал то, а ты оболтус. Угораздило же наших мам быть подругами.{/i}"
@@ -117,11 +146,9 @@ label first_scene:
     scene home_background:
         zoom 1.7
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
     Mother "Ну так что, сходишь?"
 
@@ -134,8 +161,7 @@ label second_scene:
     scene street_background:
         zoom 1.5
 
-    show gg:
-        zoom 0.5
+    show gg
 
     Kirill "Ну зачем я согласился пойти на эту разработку? Щас все пацаны сидят в «Аппетитно и двоеточие», общаются, веселятся, а я как дурак дома поел и на автобус."
 
@@ -151,8 +177,7 @@ label third_scene:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
 
     Kirill "{i}А вот и она - Красная комната.{/i}"
@@ -163,8 +188,7 @@ label third_scene:
     Kirill "{i}Ладно, ради приличия можно и взглянуть на бедолаг.{/i}"
     
     # исправить изображение девушки
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
     
 
     Kirill "{i}Это….что…это кто такое красивое создание из рая выпустил? Я даже не знаю от чего сейчас щурюсь: от её лучезарности или от того, что я запрокинул голову наверх и сейчас мне в глаза светят лампочки?{/i}"
@@ -214,8 +238,7 @@ label fourth_scene_first_choice:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
 
     Kirill "{i}Естественно! Парень в очках, линзы которого толще монитора, он то мне и поможет с заданиями, да и прокачаться в программировании с ним легче будет, чтобы добиться мою ненаглядную.{/i}"
@@ -247,8 +270,7 @@ label fourth_scene_second_choice:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
 
     Kirill "{i}Парень, который сделал скриншот рабочего стола, удалил все иконки и поставил его на фон?{/i}"
@@ -280,8 +302,7 @@ label fourth_scene_third_choice:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     Kirill "Ну и правильно. Сидеть ещё с кем-то, знакомиться, бе-е."
 
@@ -296,11 +317,9 @@ label fifth_scene:
     scene home_background:
             zoom 1.7
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
     Mother "Ну что, как прошло первое занятие?"
 
@@ -322,11 +341,8 @@ label sixth_scene_first_choice:
     scene home_background:
             zoom 1.7
 
-    show gg at right:
-        zoom 0.5
-
-    show mother_image at left:
-        zoom 0.35
+    show gg
+    show mother_image
 
     Kirill "Нет, ты что? Смог бы я за раз в кого-то влю...кхм кхм всмотреться."
 
@@ -346,11 +362,9 @@ label sixth_scene_second_choice:
     scene home_background:
         zoom 1.7
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
     Kirill "Если честно, есть там одна девочка…"
 
@@ -363,11 +377,9 @@ label seventh_scene:
     scene home_background:
         zoom 1.7
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
     Kirill "Мам, это нечто. 160 см, под 90 кг, брови сросшиеся, рот держит постоянно открытым."
 
@@ -384,11 +396,9 @@ label eighth_scene:
     scene home_background:
             zoom 1.7
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
     Mother "А ты идти не хотел. Видишь, какая я молодец?"
 
@@ -413,8 +423,7 @@ label nineth_scene_first_choice:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     show nerd_image at right:
         zoom 1
@@ -449,8 +458,7 @@ label nineth_scene_second_choice:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     show clown_image at right:
         zoom 0.5
@@ -472,8 +480,7 @@ label nineth_scene_third_choice:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     Kirill "Здесь снова опять не занято. Даже грустно как-то. Начинается занятие."
 
@@ -484,11 +491,9 @@ label tenth_scene:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
     
 
     Kirill "{i}Ах, какая красота! Ну как так можно было в один миг взять и наполнить мою жизнь смыслом?{/i}"
@@ -499,16 +504,14 @@ label tenth_scene:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
-
-    show teacher_image at right:
+    show teacher_image:
         zoom 0.5
 
     Teacher "Здравствуйте, дети. Сегодня мы продолжаем изучать разработку игр."
+
     Teacher "На сегодня задание очень простое, второе занятие ведь. Чтобы играть, нужно зайти в игру, поэтому сегодня будем учиться делать стартовое меню. Приступайте!"
 
-	return
+    return
 
 label eleventh_scene_first_first:
     # этот вариант доступен при выборе первого варианта в 9 сцене
@@ -526,8 +529,7 @@ label eleventh_scene_first_first:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     Kirill "А этот ботаник не такой уж и бесполезный."
 
@@ -547,13 +549,11 @@ label eleventh_scene_first_first:
 
     hide lesha_image
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Redhead "(проявляет интерес)"
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     Kirill "ААооаоаааао она на меня ПОСМОТРЕЛАААА."
 
@@ -586,8 +586,7 @@ label eleventh_scene_first_second:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     show nerd_image at right:
         zoom 1
@@ -640,8 +639,7 @@ label eleventh_scene_second_first:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     show clown_image at right:
         zoom 0.5
@@ -668,8 +666,7 @@ label eleventh_scene_second_second:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     show clown_image at right:
         zoom 0.5
@@ -746,11 +743,9 @@ label twelve_second:
     scene home_background:
         zoom 1.7
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
     mother "Привет, программист. Ну, что, как занятие?"
 
@@ -797,11 +792,9 @@ label thirteen_first_first:
     scene home_background:
         zoom 1.7
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
     mother "Привет, мужчина. В этот раз не всё так бесполезно?"
 
@@ -845,11 +838,9 @@ label thirteen_first_second:
     scene home_background:
         zoom 1.7
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
     mother "Ну что, покорил сердце рыжей бестии?"
 
@@ -896,11 +887,9 @@ label thirteen_second_first:
     scene home_background:
         zoom 1.7
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
     Kirill "Мам, всё, я железно решил, что это было моё последнее занятие"
 
@@ -918,8 +907,7 @@ label thirteen_second_first:
 
     Kirill "{i}Вау, просто вау. А я думал, что не заметит никто{/i}"
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
     Kirill "…Да знаешь, чтобы заполучить её внимание, надо этого Лёшу переумничать, а как я это смогу сделать, если я ничего не понимаю?"
 
@@ -944,11 +932,9 @@ label thirteen_second_second:
     scene home_background:
         zoom 1.7
 
-    show mother_image at left:
-        zoom 0.35
+    show mother_image
 
-    show gg at right:
-        zoom 0.5
+    show gg
 
     Kirill "Мам, всё, я железно решил, что это было моё последнее занятие"
 
@@ -988,8 +974,7 @@ label fourteen_first:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     show teacher_image at right:
         zoom 0.5
@@ -1009,8 +994,7 @@ label fourteen_first:
 
     hide Lesha
 
-    show crush_image at right:
-        0.5
+    show crush_image
 
     Redhead "А мне нужна помощь. Пошли отойдём?"
 
@@ -1018,8 +1002,7 @@ label fourteen_first:
 
     Kirill "{i}ааоаоооаоа вдвоём ))){/i}"
 
-    show crush_image at right:
-        0.5
+    show crush_image
 
     Kirill "Пошли"
 
@@ -1041,8 +1024,7 @@ label fourteen_first:
 
     Kirill "{i}Главное в обоморок не упасть{/i}"
 
-    show crush_image at right:
-        0.5
+    show crush_image
 
     Kirill "Ну да, есть немного."
 
@@ -1058,8 +1040,7 @@ label fourteen_first:
 
     Kirill "{i}Виу-виу, мы пожарные. Приехали тушить пожар в сердце{/i}"
 
-    show crush_image at right:
-        0.5
+    show crush_image
 
     Kirill "Отлич.. хорошая, то есть обычная идея, давай! Я не против"
 
@@ -1112,8 +1093,7 @@ label fourteen_second:
     scene circle_background:
         zoom 2
 
-    show gg at left:
-        zoom 0.5
+    show gg
 
     show nerd_image at right:
         zoom 0.5
@@ -1152,8 +1132,7 @@ label fourteen_second:
 
     hide nerd_image
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Redhead "Привет"
 
@@ -1168,8 +1147,7 @@ label fourteen_second:
 
     hide nerd_image
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Redhead "Я помню, ты в начале как и я сидел и ничего не делал, потому что ничего не понимал..."
 
@@ -1179,8 +1157,7 @@ label fourteen_second:
 
     Kirill "{i}Лёша сос..ь))){/i}"
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Kirill "Да что-то заинтересовало меня на занятиях, вот я чуть-чуть и начал разбираться"
 
@@ -1190,8 +1167,7 @@ label fourteen_second:
 
     Kirill "{i}ааоооааа молодец{/i}"
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Redhead "Знаешь, ещё этот Лёша такой лицемер"
 
@@ -1211,8 +1187,7 @@ label fourteen_second:
 
     Kirill "{i}ааааааа она со мной согласна!!!)))!)!!!{/i}"
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Redhead "Так, ладно, ближе к делу."
 
@@ -1228,8 +1203,7 @@ label fourteen_second:
 
     Kirill "{i}Виу-виу, мы пожарные. Приехали тушить пожар в сердце{/i}"
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Kirill "Отлич.. хорошая, то есть обычная идея, давай! Я не против"
 
@@ -1248,8 +1222,7 @@ label fourteen_second:
 
     hide nerd_image
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Kirill "А Глеб сейчас пойдёт исправлять Лёшу. Так сказать превращать в человека. Да ведь, Глеб?"
 
@@ -1264,8 +1237,7 @@ label fourteen_second:
 
     hide nerd_image
 
-    show crush_image at right:
-        zoom 0.5
+    show crush_image
 
     Redhead "Ну вот и хорошо. Я Женя"
 
@@ -1388,4 +1360,4 @@ label first_ending:
 
     Storyteller "Так и не дают ему покоя эти вопросы, на которые, чем старше он становится, тем всё больше склоняется ответить – нет..."
 
-	return
+    return
