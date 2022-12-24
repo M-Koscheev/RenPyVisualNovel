@@ -3,10 +3,10 @@
     define Kirill = Character('Кирилл')
     define Mother = Character('Мама')
     define Teacher = Character('Учитель')
-    define Gleb = Character('Зануда')
-    define Oleg = Character('Весельчак')
+    define Gleb = Character('Глеб')
+    define Oleg = Character('Олег')
     define Lesha = Character('Леша')
-    define Zhenya = Character('Рыженькая')
+    define Zhenya = Character('Женя')
     define Storyteller = Character('Рассказчик')
 
     image kirill_image:
@@ -53,11 +53,18 @@
         "street_background.png"
         zoom 0.5
 
+    image first_ending_background:
+        "first_ending_background.jpg"
+        zoom 3
+
+    image second_ending_background:
+        "second_ending_background.jpg"
+
     image circle_background = "circle_background.png"
 
     default choice_sit_with = 0 # 1 = Gleb; 2 = Oleg; 3 = No one
     default tell_about_liked_girl_to_mom = 0 # 1 - lie 2 - say truth
-    default twelve_choise = 0 # 1 - path to second ending 2 - to first
+    default save_choice_sit_with_choice = 0 # 1 - path to second ending 2 - to first
 
 label start:
     call first_scene
@@ -113,28 +120,30 @@ label start:
     elif choice_sit_with == 3:
         call eleventh_scene_third
 
-    if twelve_choise == 1:
+    if save_choice_sit_with_choice == 1:
         call twelve_first
-    elif twelve_choise == 2:
+    elif save_choice_sit_with_choice == 2:
         call twelve_second
 
-    if twelve_choise == 1 and tell_about_liked_girl_to_mom == 1:
+    if save_choice_sit_with_choice == 1 and tell_about_liked_girl_to_mom == 1:
         call thirteen_first_first
-    elif twelve_choise == 1 and tell_about_liked_girl_to_mom == 2:
+    elif save_choice_sit_with_choice == 1 and tell_about_liked_girl_to_mom == 2:
         call thirteen_first_second
-    elif twelve_choise == 2 and tell_about_liked_girl_to_mom == 1:
+    elif save_choice_sit_with_choice == 2 and tell_about_liked_girl_to_mom == 1:
         call thirteen_second_first
-    elif twelve_choise == 2 and tell_about_liked_girl_to_mom == 2:
+    elif save_choice_sit_with_choice == 2 and tell_about_liked_girl_to_mom == 2:
         call thirteen_second_second
     
-    if twelve_choise == 2:
-        call first_ending
+    if save_choice_sit_with_choice == 2:
         call first_ending
     else:
         if choice_sit_with == 3:
             call fourteen_first
+            call second_ending
         else:
             call fourteen_second
+            call second_ending
+
     return
 
 label first_scene:
@@ -539,8 +548,8 @@ label tenth_scene:
     scene circle_background:
         zoom 2
 
-    show kirill_image at left:
-        zoom 0.5
+    # show kirill_image at left:
+    #     zoom 0.5
 
     show teacher_image:
         zoom 0.5
@@ -558,7 +567,9 @@ label eleventh_scene_first_first:
 
     Kirill "А этот ботаник не такой уж и бесполезный."
 
-    show teacher_image at right:
+    hide kirill_image
+
+    show teacher_image:
         zoom 0.5
 
     Teacher "Есть такие кто всё сделал?"
@@ -568,7 +579,7 @@ label eleventh_scene_first_first:
     hide teacher_image
 
     show lesha_image at right:
-        zoom 0.5
+        zoom 0.3
 
     Lesha "Как? 0_0"
 
@@ -584,12 +595,16 @@ label eleventh_scene_first_first:
 
     Kirill "Мне надо быстрее изучить эту разработку игр, пока у меня сердце не разорвалось от счастья."
 
-    show teacher_image at right:
+    hide zhenya_image
+
+    hide kirill_image
+
+    show teacher_image:
         zoom 0.5
 
     Teacher "Хорошо, сейчас посмотрю и можете идти."
 
-    $ twelve_choise = 1
+    $ save_choice_sit_with_choice = 1
 
     return
 
@@ -626,7 +641,7 @@ label eleventh_scene_first_second:
 
     Kirill "Прощай."
 
-    hide nerd
+    hide gleb_image
 
     show oleg_image at right:
         zoom 0.5
@@ -639,7 +654,7 @@ label eleventh_scene_first_second:
 
     Kirill "О, какое совпадение, я тоже. Я Кирилл, кстати."
 
-    $ twelve_choise = 2
+    $ save_choice_sit_with_choice = 2
 
     return
 
@@ -658,7 +673,7 @@ label eleventh_scene_second_first:
 
     Kirill "Да, погнали"
 
-    $ twelve_choise = 2
+    $ save_choice_sit_with_choice = 2
 
     return
 
@@ -698,14 +713,13 @@ label eleventh_scene_second_second:
 
     Gleb "А меня Мефодий. Хахахахах вот это я пошутил. Я Глеб"
 
-    $ twelve_choise = 1
+    $ save_choice_sit_with_choice = 1
 
     return
 
 label eleventh_scene_third:
-    scene circle_background
-
-    show Kirill
+    scene circle_background:
+        zoom 2
 
     Storyteller "Задания даются ему с трудом, но всё-таки даются, и в конечном счёте он выполняет их все."
 
@@ -715,7 +729,7 @@ label eleventh_scene_third:
 
     Storyteller "Кирилл - молодец, будь как Кирилл"
 
-    $ twelve_choise = 1
+    $ save_choice_sit_with_choice = 1
 
     return
 
@@ -760,11 +774,9 @@ label twelve_second:
 
     Kirill "Хорошо, каждый достоин второго шанса."
 
-    show Kirill
-
     Storyteller "Кирилл действительно сел после разговора за решение задач с занятий и даже сидел дольше обычного,"
     
-    Storyteller "но что бы он не делал, какие бы ролики в интернете не смотрел, задания никак не решались, а осознание не приходило в голову. "
+    Storyteller "но что бы он ни делал, какие бы ролики в интернете не смотрел, задания никак не решались, а осознание не приходило в голову. "
 
     Storyteller "Кирилл окончательно разочаровался в своём хобби и немного в себе..."  
     
@@ -812,8 +824,7 @@ label thirteen_first_second:
 
     show mother_image
 
-    show kirill_image at right:
-        zoom 0.5
+    show kirill_image
 
     Mother "Ну что, покорил сердце рыжей бестии?"
 
@@ -873,6 +884,8 @@ label thirteen_second_first:
 
     Mother "Я тебе ничего сейчас не скажу насчёт друга или той девочки, но то, что ты упускаешь возможность с детства освоить перспективную профессию, ты должен сам понимать."
 
+    return
+
 label thirteen_second_second:
     scene home_background:
         zoom 1.7
@@ -899,25 +912,27 @@ label fourteen_first:
     scene circle_background:
         zoom 2
 
-    show kirill_image
-
-    show teacher_image at right:
+    show teacher_image:
         zoom 0.5
+
+    Kirill "{i}Делает и сдаёт задание{/i}"
 
     Teacher "Молодец, всё правильно."
 
     Teacher "Иди, помоги Лёше с Женей."
 
-    hide teacher
+    hide teacher_image
+
+    show kirill_image
 
     show lesha_image at right:
-        zoom 0.5
+        zoom 0.3
 
     Kirill "Чем вам помочь?"
 
     Lesha "Знаешь, ничем не надо. Мы сами справимся. Чуть попозже, но сами."
 
-    hide Lesha
+    hide lesha_image
 
     show zhenya_image
 
@@ -989,8 +1004,7 @@ label fourteen_second:
 
     show kirill_image
 
-    show gleb_image at right:
-        zoom 0.5
+    show gleb_image at right
 
     Kirill "Смотри, можно вместо этой конструкции воспользоваться методом и тогда можно будет убрать эти строчки."
 
@@ -1034,8 +1048,7 @@ label fourteen_second:
 
     hide zhenya_image
 
-    show gleb_image at right:
-        zoom 0.5
+    show gleb_image at right
 
     Gleb "(молча в шоке)"
 
@@ -1046,12 +1059,6 @@ label fourteen_second:
     Zhenya "Я помню, ты в начале как и я сидел и ничего не делал, потому что ничего не понимал..."
 
     Zhenya "...а сейчас уже настолько разбираться начал, что смог зазнайку Лёшу обойти."
-
-    hide zhenya_image
-
-    Kirill "{i}Лёша сос..ь))){/i}"
-
-    show zhenya_image
 
     Kirill "Да что-то заинтересовало меня на занятиях, вот я чуть-чуть и начал разбираться"
 
@@ -1109,8 +1116,7 @@ label fourteen_second:
 
     hide zhenya_image
 
-    show gleb_image at right:
-        zoom 0.5
+    show gleb_image at right
 
     Gleb "Глеб"
 
@@ -1122,8 +1128,7 @@ label fourteen_second:
 
     hide zhenya_image
 
-    show gleb_image at right:
-        zoom 0.5
+    show gleb_image at right
 
     Gleb "(До сих пор в шоке) Да, давно хотел."
 
@@ -1138,39 +1143,31 @@ label fourteen_second:
     return
 
 label second_ending:
+    scene second_ending_background
+
     Storyteller "Теперь Кирилл и Женя сидят вместе. Он рад, она тоже."
 
     Storyteller "Конечно, ведь Кирилл – парень не промах, а он так её любит, что кошки молоко не так любят, как Кирилл Женю."
 
     Storyteller "Уже добавили друг друга в соцсетях, имеют общий диалог, но что-то мешает им поднять их общение на новый уровень."
 
-    Storyteller "И спустя пару недель, посмотрев на ситуацию со стороны, до Кирилла дошло:"
+    Storyteller "И спустя пару недель, посмотрев на ситуацию со стороны, до Кирилла дошло: в переписке она спрашивает как сделать то-то в программе, на занятиях тоже только о разработке игр говорят."
 
-    Storyteller "в переписке она спрашивает как сделать то-то в программе, на занятиях тоже только о разработке игр говорят,"
-
-    Storyteller "а за это время он даже не узнал её знак зодиака, любимый цвет и как её собака мило спит на обуви."
+    Storyteller "А за это время он даже не узнал её знак зодиака, любимый цвет и как её собака мило спит на обуви."
 
     Storyteller "Одним словом: он ей нужен был лишь для того, чтобы легко решать задания и лучше разобраться в разработке игр, а на него, как на личность, ей всё равно."
 
     Storyteller "На самом деле не удивительно, ведь девочкам не нужны ходячие энциклопедии, пусть даже эти энциклопедии перспективные."
 
-    Storyteller "Девочкам нужен тот, кто может поддержать любой разговор, а не только по одной тематике, будет уделять ей много внимания,"
+    Storyteller "Девочкам нужен тот, кто может поддержать любой разговор, а не только по одной тематике, будет уделять ей много внимания, замечать любую стрижку, даже подравнивание кончиков, и хвалить маник без намёков на это."
 
-    Storyteller "замечать любую стрижку, даже подравнивание кончиков, и хвалить маник без намёков на это."
-
-    Storyteller "(Если серьёзно, то для каждой девочки этот список свой, но что точно не нравится никому, так это если парень душила, коим и стал наш подопечный Кирилл)."
+    Storyteller "(Если серьёзно, то для каждой девочки этот список свой, но что точно не нравится никому, так это если парень душнила, коим и стал наш подопечный Кирилл)."
 
     Storyteller "Поняв это, Кирилл прекратил такое общение и уже на следующем занятии подтвердил свои домыслы насчёт истинных намерений Жени: она села к Глебу."
 
-    Storyteller "Начал думать о том, чтобы бросить кружок, забить на это программирование и вернуться к друзьям и своему пролежню на диване,"
+    Storyteller "Начал думать о том, чтобы бросить кружок, забить на это программирование и вернуться к друзьям и своему пролежню на диване, но за то время, пока он добивался её, разработка игр понравилась ему, он поистине загорелся этим."
 
-    Storyteller "но за то время, пока он добивался её, разработка игр понравилась ему, он поистине загорелся этим."
-
-    Storyteller "Теперь он отдыхает не за просмотром видеоурока от индусского парня,"
-
-    Storyteller "а получает удовольствие не от нового выбитого героя или достижения высокого ранга,"
-
-    Storyteller "а когда успешно составляет программу, после пары тройки часов, проведённых за ней."
+    Storyteller "Теперь он получает удовольствие не от нового выбитого героя или достижения высокого ранга, а когда успешно составляет программу, после пары-тройки часов, проведённых за ней."
 
     Storyteller "Кирилл думает остаться до 11, а потом с 1 курса совмещать учёбу в университете и работу на фрилансе."
 
@@ -1181,11 +1178,13 @@ label second_ending:
     return
 
 label first_ending:
+    scene first_ending_background
+
     Storyteller "Кирилл, наслушавшись советов от нового знакомого, не стал доучиваться до «бесполезного» 11 класса и пошёл за ним в самую известную шарагу своего города."
 
     Storyteller "Поначалу всё было шоколадно: новые прикольные люди, можно было стрелять сигарету даже у преподавателей, да и красивых девочек хоть отбавляй, а не 1 на всю группу!"
 
-    Storyteller "Так он и доучился, не зная горя(кроме постоянных разборок и пивного живота)."
+    Storyteller "Так он и доучился, не зная горя (кроме постоянных разборок и пивного живота)."
 
     Storyteller "Нашёл ту самую, свою ненаглядную, с которой живёт и снимает квартиру."
 
@@ -1195,11 +1194,13 @@ label first_ending:
 
     Storyteller "Иногда срываются на выходных к друзьям, иногда друг на друга."
 
-    Storyteller "Так бы всё и продолжалось, если бы не одно но: каждый раз, когда Кирилл с девушкой собирались с друзьями потусить,"
+    Storyteller "Так бы всё и продолжалось, если бы не одно но:"
 
-    Storyteller "каждый раз, когда выезжали куда-то на природу или просто друзья звали поподтягиваться, а точнее попотягивать пару другую бутылок,"
+    Storyteller "Каждый раз, когда Кирилл с девушкой собирались с друзьями потусить, каждый раз, когда выезжали куда-то на природу..."
 
-    Storyteller "у него в голове возникал ряд вопросов: «А в нужном ли месте я нахожусь?"
+    Storyteller "или просто друзья звали поподтягиваться, а точнее попотягивать пару другую бутылок, у него в голове возникал ряд вопросов:"
+
+    Storyteller "«А в нужном ли месте я нахожусь?"
 
     Storyteller "Нравятся ли мне люди, что окружают меня, по-настоящему?»"
 
