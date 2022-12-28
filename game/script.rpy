@@ -59,6 +59,7 @@
 
     image second_ending_background:
         "second_ending_background.jpg"
+        zoom 1.6
 
     image circle_background = "circle_background.png"
 
